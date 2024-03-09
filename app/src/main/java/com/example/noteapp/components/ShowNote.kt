@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CornerSize
@@ -53,14 +54,14 @@ fun ShowNode(
                 .clickable {
                     isClick.value = !isClick.value
                 },
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         )
         {
             Column(
                 modifier = Modifier
-                    .fillMaxWidth(2.5f)
                     .padding(8.dp),
-                verticalArrangement = Arrangement.Center
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.Start
             )
             {
                 Text(
@@ -77,29 +78,31 @@ fun ShowNode(
                         fontSize = MaterialTheme.typography.titleSmall.fontSize
                     )
                 )
-                Text(
-                    text = note.entryDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
-                    color = Color.White,
-                    style = TextStyle(
-                        fontSize = 10.sp
-                    )
-                )
+//                Text(
+//                    text = note.entryDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
+//                    color = Color.White,
+//                    style = TextStyle(
+//                        fontSize = 10.sp
+//                    )
+//                )
             }
-            Row(
-                modifier = modifier.fillMaxWidth(0.3f)
-            ) {
-                if (isClick.value) {
+            if(isClick.value){
+                Column(
+                    horizontalAlignment = Alignment.End
+                ) {
+
                     Icon(
                         imageVector = Icons.Filled.Delete,
                         contentDescription = null,
                         modifier = modifier
-                            .padding(start = 30.dp)
+                            .padding(start = 30.dp,end = 10.dp)
                             .clickable {
                                 onNoteClick(note)
                             },
                         tint = Color.White
                     )
                 }
+
             }
         }
     }

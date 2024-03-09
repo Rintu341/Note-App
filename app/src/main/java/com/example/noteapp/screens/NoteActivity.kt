@@ -132,6 +132,7 @@ private fun MainContent(
                             onAdd(Note(title = title.value, description = desc.value))
                             title.value = ""
                             desc.value = ""
+                            isOpen.value = false
                         }
                     }
                 )
