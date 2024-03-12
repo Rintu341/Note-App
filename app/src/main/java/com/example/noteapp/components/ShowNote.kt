@@ -17,6 +17,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.formatWithSkeleton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -28,6 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.noteapp.model.Note
+import com.example.noteapp.util.formatDate
 import java.time.format.DateTimeFormatter
 
 @Preview(showBackground = true)
@@ -78,13 +80,13 @@ fun ShowNode(
                         fontSize = MaterialTheme.typography.titleSmall.fontSize
                     )
                 )
-//                Text(
-//                    text = note.entryDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
-//                    color = Color.White,
-//                    style = TextStyle(
-//                        fontSize = 10.sp
-//                    )
-//                )
+                Text(
+                    text = formatDate(note.entryDate.time),
+                    color = Color.White,
+                    style = TextStyle(
+                        fontSize = 10.sp
+                    )
+                )
             }
             if(isClick.value){
                 Column(

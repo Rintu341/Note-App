@@ -75,7 +75,7 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     val room_version = "2.6.1"
-    val hilt_version = "2.44"
+    val hilt_version = "2.47"
     //Hilt-Dagger
     implementation("com.google.dagger:hilt-android:$hilt_version")
     kapt("com.google.dagger:hilt-android-compiler:$hilt_version")

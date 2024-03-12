@@ -24,8 +24,10 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             MyApp {
-                val noteViewModel:NoteViewModel by viewModels()
-                HomeScreen()
+
+//                val noteViewModel:NoteViewModel by viewModels()
+                val noteViewModel = viewModel<NoteViewModel>()
+                HomeScreen(noteViewModel)
             }
         }
     }
